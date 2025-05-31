@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Customize i3 theme with color selector and preview.">
+    <link rel="stylesheet" href="style.css">
+    <title>i3 Color Configurator</title>
+  </head>
+  <body>
+    <header>
+      <div class="dmenu" id="dmenu">
+        <span id="dmenu-item">dmenu</span>
+        <div class="items" id="dmenu-items">
+          <span>[</span>
+          <span id="dmenu-item">411toppm</span>
+          <span>aa-enabled</span>
+          <span>ac-local</span>
+          <span>aconnect</span>
+          <span>acpi</span>
+          <span>acyclic</span>
+          <span>addpart</span>
+        </div>
+      </div>
+
+      <div class="responsive-table">
+        <table class="i3-windows">
+          <tr>
+            <td id="focused-window">Focused Window</td>
+            <td id="inactive-window">Inactive Window</td>
+            <td id="unfocused-window">Unfocused Window</td>
+            <td id="urgent-window">Urgent Window</td>
+            <td id="placeholder-window">Placeholder Window</td>
+          </tr>
+          <tr>
+            <td id="window"></td>
+            <td id="window"></td>
+            <td id="window"></td>
+            <td id="window"></td>
+            <td id="window"></td>
+          </tr>
+        </table>
+      </div>
+    </header>
+
+    <main>
+      <h1>Color Configurator for i3, i3status, and dmenu</h1>
+      <section class="i3-colors">
+        <label for="themes">Theme</label>
+        <select id="themes">
+          <optgroup label="Dark Theme">
+            <option value="default" selected>Default</option>
+            <option value="rose-pine">Rose Pine</option>
+          </optgroup>
+          <optgroup label="Light Theme">
+            <option value="rose-pine-dawn">Rose Pine Dawn</option>
+          </optgroup>
+        </select>
+
+        <article>
+          <h2>i3 Windows</h2>
+          <div class="responsive-table">
+            <table>
+              <tr>
+                <td>Class</td>
+                <td>Border</td>
+                <td>Background</td>
+                <td>Text</td>
+                <td>Indicator</td>
+                <td>Child Border</td>
+              </tr>
+              <tr>
+                <td>Focused</td>
+                <td><input type="color" id="title-focused-border" data-state="focused-window" data-element="border"></td>
+                <td><input type="color" id="title-focused-bg" data-state="focused-window" data-element="bg"></td>
+                <td><input type="color" id="title-focused-text" data-state="focused-window" data-element="text"></td>
+                <td><input type="color" id="title-focused-indicator" data-state="focused-window" data-element="indicator"></td>
+                <td><input type="color" id="title-focused-child-border" data-state="focused-window" data-element="child-border"></td>
+              </tr>
+              <tr>
+                <td>Inactive</td>
+                <td><input type="color" id="title-inactive-border" data-state="inactive-window" data-element="border"></td>
+                <td><input type="color" id="title-inactive-bg" data-state="inactive-window" data-element="bg"></td>
+                <td><input type="color" id="title-inactive-text" data-state="inactive-window" data-element="text"></td>
+                <td><input type="color" id="title-inactive-indicator" data-state="inactive-window" data-element="indicator"></td>
+                <td><input type="color" id="title-inactive-child-border" data-state="inactive-window" data-element="child-border"></td>
+              </tr>
+              <tr>
+                <td>Unfocused</td>
+                <td><input type="color" id="title-unfocused-border" data-state="unfocused-window" data-element="border"></td>
+                <td><input type="color" id="title-unfocused-bg" data-state="unfocused-window" data-element="bg"></td>
+                <td><input type="color" id="title-unfocused-text" data-state="unfocused-window" data-element="text"></td>
+                <td><input type="color" id="title-unfocused-indicator" data-state="unfocused-window" data-element="indicator"></td>
+                <td><input type="color" id="title-unfocused-child-border" data-state="unfocused-window" data-element="child-border"></td>
+              </tr>
+              <tr>
+                <td>Urgent</td>
+                <td><input type="color" id="title-urgent-border" data-state="urgent-window" data-element="border"></td>
+                <td><input type="color" id="title-urgent-bg" data-state="urgent-window" data-element="bg"></td>
+                <td><input type="color" id="title-urgent-text" data-state="urgent-window" data-element="text"></td>
+                <td><input type="color" id="title-urgent-indicator" data-state="urgent-window" data-element="indicator"></td>
+                <td><input type="color" id="title-urgent-child-border" data-state="urgent-window" data-element="child-border"></td>
+              </tr>
+              <tr>
+                <td>Placeholder</td>
+                <td><input type="color" id="title-placeholder-border" data-state="placeholder-window" data-element="border"></td>
+                <td><input type="color" id="title-placeholder-bg" data-state="placeholder-window" data-element="bg"></td>
+                <td><input type="color" id="title-placeholder-text" data-state="placeholder-window" data-element="text"></td>
+                <td><input type="color" id="title-placeholder-indicator" data-state="placeholder-window" data-element="indicator"></td>
+                <td><input type="color" id="title-placeholder-child-border" data-state="placeholder-window" data-element="child-border"></td>
+              </tr>
+              <tr>
+                <td>Window</td>
+                <td></td>
+                <td><input type="color" id="title-window-bg" data-state="window" data-element="bg"></td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>i3 Workspaces</h2>
+          <div class="responsive-table">
+            <table>
+              <tr>
+                <td>Class</td>
+                <td>Border</td>
+                <td>Background</td>
+                <td>Text</td>
+              </tr>
+              <tr>
+                <td>Focused</td>
+                <td><input type="color" id="workspace-focused-border" data-state="focused-workspace" data-element="border"></td>
+                <td><input type="color" id="workspace-focused-bg" data-state="focused-workspace" data-element="bg"></td>
+                <td><input type="color" id="workspace-focused-text" data-state="focused-workspace" data-element="text"></td>
+              </tr>
+              <tr>
+                <td>Active</td>
+                <td><input type="color" id="workspace-active-border" data-state="active-workspace" data-element="border"></td>
+                <td><input type="color" id="workspace-active-bg" data-state="active-workspace" data-element="bg"></td>
+                <td><input type="color" id="workspace-active-text" data-state="active-workspace" data-element="text"></td>
+              </tr>
+              <tr>
+                <td>Inactive</td>
+                <td><input type="color" id="workspace-inactive-border" data-state="inactive-workspace" data-element="border"></td>
+                <td><input type="color" id="workspace-inactive-bg" data-state="inactive-workspace" data-element="bg"></td>
+                <td><input type="color" id="workspace-inactive-text" data-state="inactive-workspace" data-element="text"></td>
+              </tr>
+              <tr>
+                <td>Urgent</td>
+                <td><input type="color" id="workspace-urgent-border" data-state="urgent-workspace" data-element="border"></td>
+                <td><input type="color" id="workspace-urgent-bg" data-state="urgent-workspace" data-element="bg"></td>
+                <td><input type="color" id="workspace-urgent-text" data-state="urgent-workspace" data-element="text"></td>
+              </tr>
+              <tr>
+                <td>Binding</td>
+                <td><input type="color" id="workspace-binding-border" data-state="binding-workspace" data-element="border"></td>
+                <td><input type="color" id="workspace-binding-bg" data-state="binding-workspace" data-element="bg"></td>
+                <td><input type="color" id="workspace-binding-text" data-state="binding-workspace" data-element="text"></td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>i3status</h2>
+          <div class="responsive-table">
+            <table>
+              <tr>
+                <td>Class</td>
+                <td>Background</td>
+                <td>Text</td>
+                <td>Separator</td>
+              </tr>
+              <tr>
+                <td>Basic</td>
+                <td><input type="color" id="status-basic-bg" data-state="i3status" data-element="bg"></td>
+                <td><input type="color" id="status-basic-text" data-state="bar-normal" data-element="text"></td>
+                <td><input type="color" id="status-basic-separator" data-state="bar-separator" data-element="separator"></td>
+              </tr>
+              <tr>
+                <td>Good</td>
+                <td></td>
+                <td><input type="color" id="status-good-text" data-state="bar-good" data-element="text"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Degraded</td>
+                <td></td>
+                <td><input type="color" id="status-degraded-text" data-state="bar-degraded" data-element="text"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Bad</td>
+                <td></td>
+                <td><input type="color" id="status-bad-text" data-state="bar-bad" data-element="text"></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>dmenu</h2>
+          <div class="responsive-table">
+            <table>
+              <tr>
+                <td>Class</td>
+                <td>Background</td>
+                <td>Text</td>
+              </tr>
+              <tr>
+                <td>Normal</td>
+                <td><input type="color" id="dmenu-normal-bg" data-state="dmenu" data-element="bg"></td>
+                <td><input type="color" id="dmenu-normal-text" data-state="dmenu-items" data-element="text"></td>
+              </tr>
+              <tr>
+                <td>Selected</td>
+                <td><input type="color" id="dmenu-selected-bg" data-state="dmenu-item" data-element="bg"></td>
+                <td><input type="color" id="dmenu-selected-text" data-state="dmenu-item" data-element="text"></td>
+              </tr>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="codes">
+        <article>
+          <h2>~/.config/i3/config</h2>
+          <pre>
+            <button class="copy-code" id="copy-i3-config">Copy Code</button>
+            <code id="i3-config-code"></code>
+          </pre>
+        </article>
+
+        <article>
+          <h2>~/.config/i3status/config</h2>
+          <pre>
+            <button class="copy-code" id="copy-i3status-config">Copy Code</button>
+            <code id="i3status-code"></code>
+          </pre>
+        </article>
+      </section>
+    </main>
+
+    <footer class="i3status" id="i3status">
+      <div class="workspaces">
+        <span id="focused-workspace">1: Focused</span>
+        <span id="active-workspace">2: Active</span>
+        <span id="inactive-workspace">3: Inactive</span>
+        <span id="urgent-workspace">4: Urgent</span>
+        <span id="binding-workspace">5: Binding</span>
+      </div>
+
+      <div class="bar">
+        <span id="bar-good">W: (100% at Wireless SSID)</span>
+        <span id="bar-separator">|</span>
+        <span id="bar-bad">E: down</span>
+        <span id="bar-separator">|</span>
+        <span id="bar-degraded">BAT 20%</span>
+        <span id="bar-separator">|</span>
+        <span id="bar-normal">2025-05-31 13:51:20</span>
+      </div>
+    </footer>
+  </body>
+  <script type="module" src="js/main.js"></script>
+</html>
