@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Customize i3 theme with color selector and preview.">
+    <meta name="description" content="Customize i3 theme with online color selector and live preview.">
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="style.css">
     <title>i3 Color Configurator</title>
   </head>
@@ -11,19 +12,19 @@
     <header>
       <div class="dmenu" id="dmenu">
         <span id="dmenu-item">dmenu</span>
-        <div class="items" id="dmenu-items">
+        <div class="items scrollbar" id="dmenu-items">
           <span>[</span>
-          <span id="dmenu-item">411toppm</span>
-          <span>aa-enabled</span>
-          <span>ac-local</span>
-          <span>aconnect</span>
-          <span>acpi</span>
-          <span>acyclic</span>
-          <span>addpart</span>
+          <span id="dmenu-item">adduser</span>
+          <span>anacron</span>
+          <span>apparmor</span>
+          <span>apt</span>
+          <span>bash</span>
+          <span>curl</span>
+          <span>ffmpeg</span>
         </div>
       </div>
 
-      <div class="responsive-table">
+      <div class="scrollbar">
         <table class="i3-windows">
           <tr>
             <td id="focused-window">Focused Window</td>
@@ -59,7 +60,7 @@
 
         <article>
           <h2>i3 Windows</h2>
-          <div class="responsive-table">
+          <div class="scrollbar">
             <table>
               <tr>
                 <td>Class</td>
@@ -120,7 +121,7 @@
 
         <article>
           <h2>i3 Workspaces</h2>
-          <div class="responsive-table">
+          <div class="scrollbar">
             <table>
               <tr>
                 <td>Class</td>
@@ -164,7 +165,7 @@
 
         <article>
           <h2>i3status</h2>
-          <div class="responsive-table">
+          <div class="scrollbar">
             <table>
               <tr>
                 <td>Class</td>
@@ -202,7 +203,7 @@
 
         <article>
           <h2>dmenu</h2>
-          <div class="responsive-table">
+          <div class="scrollbar">
             <table>
               <tr>
                 <td>Class</td>
@@ -243,7 +244,7 @@
       </section>
     </main>
 
-    <footer class="i3status" id="i3status">
+    <footer class="i3status scrollbar" id="i3status">
       <div class="workspaces">
         <span id="focused-workspace">1: Focused</span>
         <span id="active-workspace">2: Active</span>
@@ -253,11 +254,11 @@
       </div>
 
       <div class="bar">
-        <span id="bar-good">W: (100% at Wireless SSID)</span>
+        <span id="bar-good">Wireless: up</span>
         <span id="bar-separator">|</span>
-        <span id="bar-bad">E: down</span>
+        <span id="bar-bad">Ethernet: down</span>
         <span id="bar-separator">|</span>
-        <span id="bar-degraded">BAT 20%</span>
+        <span id="bar-degraded">BAT 30%</span>
         <span id="bar-separator">|</span>
         <span id="bar-normal">2025-05-31 13:51:20</span>
       </div>

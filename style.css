@@ -1,22 +1,5 @@
-:root {
-  --background: #faf4eb;
-  --text: #3b3852;
-  --primary: #fffaf3;
-  --outline: #dfdad9;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #191724;
-    --text: #e0def4;
-    --primary: #1f1d2e;
-    --outline: #403d52;
-  }
-}
-
 body {
-  color: var(--text);
-  background-color: var(--background);
+  font-family: sans-serif;
 }
 
 header {
@@ -26,41 +9,34 @@ header {
   flex-direction: column;
 }
 
-input[type="color"] {
-  padding: 0;
-  border: 3px solid var(--outline);
-  cursor: pointer;
-}
-
-select {
-  background-color: var(--primary);
-  color: var(--text);
-  border: 2px solid var(--outline);
-  padding: 3px 0px 3px 5px;
-}
-
 .dmenu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font: 0.8rem monospace;
+  column-gap: 2rem;
+  font: 0.9rem monospace;
 }
 
 .dmenu span {
-  padding: 2px 8px;
+  padding: 1px 5px;
 }
 
-.responsive-table {
+.dmenu .items {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.scrollbar,
+pre {
   overflow-x: scroll;
 }
 
-table.i3-windows {
+.i3-windows {
   width: 100%;
 }
 
-table.i3-windows td {
-  text-align: center;
-  padding: 5px 10px;
+.i3-windows td {
+  padding: 3px 5px;
 }
 
 td#window {
@@ -69,16 +45,15 @@ td#window {
 }
 
 td:not(main td) {
-  border-width: 3px;
-  border-style: solid;
+  border: 3px solid;
 }
 
-section.i3-colors {
+.i3-colors {
   float: left;
   width: 50%;
 }
 
-section.codes {
+.codes {
   float: right;
   width: 50%;
 }
@@ -92,22 +67,7 @@ pre {
   flex-direction: column;
   align-items: flex-start;
   padding: 1rem;
-  background-color: var(--primary);
-  overflow-x: scroll;
-}
-
-.copy-code {
-  background-color: var(--outline);
-  color: var(--text);
-  border: none;
-  padding: 0.3rem 0.4rem;
-  cursor: pointer;
-}
-
-.i3status .workspaces span {
-  border-width: 2px;
-  border-style: solid;
-  padding: 0 3px;
+  border: 2px solid;
 }
 
 .i3status {
@@ -115,11 +75,27 @@ pre {
   bottom: 0;
   display: flex;
   justify-content: space-between;
+  column-gap: 5rem;
   width: 100%;
 }
 
+.workspaces,
+.bar {
+  display: flex
+}
+
+.workspaces span {
+  border: 2px solid;
+  padding: 0 3px;
+}
+
+.bar {
+  column-gap: 0.5rem;
+}
+
 @media screen and (max-width: 1200px) {
-  section.i3-colors, section.codes {
+  .i3-colors,
+  .codes {
     width: 100%;
   }
 }
