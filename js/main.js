@@ -1,5 +1,5 @@
-import updateCode from "./code.js";
-import copyCode from "./copy-code.js";
+import updateConfig from "./update-config.js";
+import copyConfig from "./copy-config.js";
 import updateElementColor from "./element-color-update.js";
 import * as load from "./load-theme.js";
 import * as theme from "./theme.js";
@@ -26,7 +26,7 @@ function getAllInputColor() {
 
 function startup() {
   load.color(theme.formatted(theme.defaultTheme));
-  updateCode(getAllInputColor());
+  updateConfig(getAllInputColor());
 }
 
 function changeColor() {
@@ -35,7 +35,7 @@ function changeColor() {
     "change",
     updateElementColor(colorPicker.value, targetState, targetElement)
   );
-  colorPicker.addEventListener("change", updateCode(getAllInputColor()));
+  colorPicker.addEventListener("change", updateConfig(getAllInputColor()));
 }
 
 for (const colorElement of document.querySelectorAll("input[type=color]")) {
@@ -52,14 +52,14 @@ themeElement.addEventListener("change", () =>
   load.selectedTheme(themeElement, getAllInputColor)
 );
 
-for (const copyCodeElement of document.querySelectorAll(".copy-code")) {
-  copyCodeElement.addEventListener("click", () => {
-    switch (copyCodeElement.id) {
+for (const copyConfigElement of document.querySelectorAll(".copy-config")) {
+  copyConfigElement.addEventListener("click", () => {
+    switch (copyConfigElement.id) {
       case "copy-i3-config":
-        copyCode(copyCodeElement.id, "i3-config-code");
+        copyConfig(copyConfigElement.id, "i3-config");
         break;
       case "copy-i3status-config":
-        copyCode(copyCodeElement.id, "i3status-code");
+        copyConfig(copyConfigElement.id, "i3status-config");
         break;
       default:
         break;

@@ -1,5 +1,5 @@
-function updatei3Code(color) {
-  const i3Code = `
+function updatei3Config(color) {
+  const i3Config = `
 # Class                 Border  Bground Text    Indicator Child_border
 client.focused          ${color["title-focused-border"]} ${color["title-focused-bg"]} ${color["title-focused-text"]} ${color["title-focused-indicator"]}   ${color["title-focused-child-border"]}
 client.focused_inactive ${color["title-inactive-border"]} ${color["title-inactive-bg"]} ${color["title-inactive-text"]} ${color["title-inactive-indicator"]}   ${color["title-inactive-child-border"]}
@@ -26,10 +26,10 @@ bar {
 bindsym $mod+d exec --no-startup-id dmenu_run -nf "${color["dmenu-normal-text"]}" -nb "${color["dmenu-normal-bg"]}" -sb "${color["dmenu-selected-bg"]}" -sf "${color["dmenu-selected-text"]}" -fn "monospace:size=10" -p "dmenu"
 `;
 
-  document.getElementById("i3-config-code").textContent = i3Code;
+  document.getElementById("i3-config").textContent = i3Config;
 }
 
-function updatei3statusCode(color) {
+function updatei3statusConfig(color) {
   const i3status = `
 general {
   output_format = "i3bar"
@@ -40,10 +40,10 @@ general {
 }
 `;
 
-  document.getElementById("i3status-code").textContent = i3status;
+  document.getElementById("i3status-config").textContent = i3status;
 }
 
-export default function updateCode(inputColor) {
-  updatei3Code(inputColor);
-  updatei3statusCode(inputColor);
+export default function updateConfig(inputColor) {
+  updatei3Config(inputColor);
+  updatei3statusConfig(inputColor);
 }

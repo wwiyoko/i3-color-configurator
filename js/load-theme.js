@@ -1,4 +1,4 @@
-import updateCode from "./code.js";
+import updateConfig from "./update-config.js";
 import updateElementColor from "./element-color-update.js";
 import * as theme from "./theme.js";
 
@@ -15,7 +15,7 @@ async function setSelectedTheme(themeElement, allInputColor) {
     `./themes/${themeElement.value}.json`
   );
   loadColor(theme.formatted(selectedTheme));
-  updateCode(allInputColor());
+  updateConfig(allInputColor());
 }
 
 export { loadColor as color, setSelectedTheme as selectedTheme };

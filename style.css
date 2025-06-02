@@ -53,7 +53,7 @@ td:not(main td) {
   width: 50%;
 }
 
-.codes {
+.config {
   float: right;
   width: 50%;
 }
@@ -95,7 +95,7 @@ pre {
 
 @media screen and (max-width: 1200px) {
   .i3-colors,
-  .codes {
+  .config {
     width: 100%;
   }
 }
